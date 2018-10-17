@@ -136,6 +136,10 @@ var (
 		Name:  "testnet",
 		Usage: "Ropsten network: pre-configured proof-of-work test network",
 	}
+	SkynetFlag = cli.BoolFlag{
+		Name:  "skynet",
+		Usage: "Skynet network: pre-configured proof-of-work test network",
+	}
 	RinkebyFlag = cli.BoolFlag{
 		Name:  "rinkeby",
 		Usage: "Rinkeby network: pre-configured proof-of-authority test network",
@@ -574,7 +578,7 @@ var (
 	ListenPortFlag = cli.IntFlag{
 		Name:  "port",
 		Usage: "Network listening port",
-		Value: 30303,
+		Value: 50505,
 	}
 	BootnodesFlag = cli.StringFlag{
 		Name:  "bootnodes",
@@ -717,6 +721,9 @@ func MakeDataDir(ctx *cli.Context) string {
 		if ctx.GlobalBool(TestnetFlag.Name) {
 			return filepath.Join(path, "testnet")
 		}
+		if ctx.GlobalBool(SkynetFlag.Name) {
+			return filepath.Join(path, "skynet")
+		}
 		if ctx.GlobalBool(RinkebyFlag.Name) {
 			return filepath.Join(path, "rinkeby")
 		}
@@ -765,7 +772,7 @@ func setNodeUserIdent(ctx *cli.Context, cfg *node.Config) {
 // setBootstrapNodes creates a list of bootstrap nodes from the command line
 // flags, reverting to pre-configured ones if none have been specified.
 func setBootstrapNodes(ctx *cli.Context, cfg *p2p.Config) {
-	urls := params.MainnetBootnodes
+	urls := params.EthersocialBootnodes
 	switch {
 	case ctx.GlobalIsSet(BootnodesFlag.Name) || ctx.GlobalIsSet(BootnodesV4Flag.Name):
 		if ctx.GlobalIsSet(BootnodesV4Flag.Name) {
@@ -775,6 +782,8 @@ func setBootstrapNodes(ctx *cli.Context, cfg *p2p.Config) {
 		}
 	case ctx.GlobalBool(TestnetFlag.Name):
 		urls = params.TestnetBootnodes
+	case ctx.GlobalBool(SkynetFlag.Name):
+		urls = params.SkynetBootnodes
 	case ctx.GlobalBool(RinkebyFlag.Name):
 		urls = params.RinkebyBootnodes
 	case ctx.GlobalBool(GoerliFlag.Name):
@@ -1151,6 +1160,8 @@ func setDataDir(ctx *cli.Context, cfg *node.Config) {
 		cfg.DataDir = "" // unless explicitly requested, use memory databases
 	case ctx.GlobalBool(TestnetFlag.Name):
 		cfg.DataDir = filepath.Join(node.DefaultDataDir(), "testnet")
+	case ctx.GlobalBool(SkynetFlag.Name):
+		cfg.DataDir = filepath.Join(node.DefaultDataDir(), "skynet")
 	case ctx.GlobalBool(RinkebyFlag.Name):
 		cfg.DataDir = filepath.Join(node.DefaultDataDir(), "rinkeby")
 	case ctx.GlobalBool(GoerliFlag.Name):
@@ -1311,7 +1322,7 @@ func SetShhConfig(ctx *cli.Context, stack *node.Node, cfg *whisper.Config) {
 // SetEthConfig applies eth-related command line flags to the config.
 func SetEthConfig(ctx *cli.Context, stack *node.Node, cfg *eth.Config) {
 	// Avoid conflicting network flags
-	checkExclusive(ctx, DeveloperFlag, TestnetFlag, RinkebyFlag, GoerliFlag)
+	checkExclusive(ctx, DeveloperFlag, TestnetFlag, RinkebyFlag, GoerliFlag, SkynetFlag)
 	checkExclusive(ctx, LightServFlag, SyncModeFlag, "light")
 	// Can't use both ephemeral unlocked and external signer
 	checkExclusive(ctx, DeveloperFlag, ExternalSignerFlag)
@@ -1415,6 +1426,11 @@ func SetEthConfig(ctx *cli.Context, stack *node.Node, cfg *eth.Config) {
 			cfg.NetworkId = 3
 		}
 		cfg.Genesis = core.DefaultTestnetGenesisBlock()
+	case ctx.GlobalBool(SkynetFlag.Name):
+		if !ctx.GlobalIsSet(NetworkIdFlag.Name) {
+			cfg.NetworkId = 3
+		}
+		cfg.Genesis = core.DefaultSkynetGenesisBlock()
 	case ctx.GlobalBool(RinkebyFlag.Name):
 		if !ctx.GlobalIsSet(NetworkIdFlag.Name) {
 			cfg.NetworkId = 4
@@ -1576,6 +1592,8 @@ func MakeGenesis(ctx *cli.Context) *core.Genesis {
 	switch {
 	case ctx.GlobalBool(TestnetFlag.Name):
 		genesis = core.DefaultTestnetGenesisBlock()
+	case ctx.GlobalBool(SkynetFlag.Name):
+		genesis = core.DefaultSkynetGenesisBlock()
 	case ctx.GlobalBool(RinkebyFlag.Name):
 		genesis = core.DefaultRinkebyGenesisBlock()
 	case ctx.GlobalBool(GoerliFlag.Name):
