@@ -19,7 +19,7 @@ package rpc
 import (
 	"net"
 
-	"github.com/ethersocial/go-ethersocial/log"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 // StartHTTPEndpoint starts the HTTP RPC endpoint, configured with cors/vhosts/modules

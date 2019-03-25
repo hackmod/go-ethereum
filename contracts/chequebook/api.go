@@ -20,7 +20,7 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/ethersocial/go-ethersocial/common"
+	"github.com/ethereum/go-ethereum/common"
 )
 
 const Version = "1.0"

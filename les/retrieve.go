@@ -26,8 +26,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethersocial/go-ethersocial/common/mclock"
-	"github.com/ethersocial/go-ethersocial/light"
+	"github.com/ethereum/go-ethereum/common/mclock"
+	"github.com/ethereum/go-ethereum/light"
 )
 
 var (

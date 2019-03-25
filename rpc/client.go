@@ -32,7 +32,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethersocial/go-ethersocial/log"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 var (

@@ -26,7 +26,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/ethersocial/go-ethersocial/log"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 const (

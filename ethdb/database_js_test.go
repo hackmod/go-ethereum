@@ -19,7 +19,7 @@
 package ethdb_test
 
 import (
-	"github.com/ethersocial/go-ethersocial/ethdb"
+	"github.com/ethereum/go-ethereum/ethdb"
 )
 
 var _ ethdb.Database = &ethdb.LDBDatabase{}

@@ -24,7 +24,7 @@ import (
 	"io"
 	"testing"
 
-	"github.com/ethersocial/go-ethersocial/swarm/testutil"
+	"github.com/ethereum/go-ethereum/swarm/testutil"
 	"golang.org/x/crypto/sha3"
 )
 

@@ -23,9 +23,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethersocial/go-ethersocial/common"
-	"github.com/ethersocial/go-ethersocial/crypto"
-	"github.com/ethersocial/go-ethersocial/ethdb"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/ethdb"
 )
 
 func init() {

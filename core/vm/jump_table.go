@@ -20,7 +20,7 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/ethersocial/go-ethersocial/params"
+	"github.com/ethereum/go-ethereum/params"
 )
 
 type (
