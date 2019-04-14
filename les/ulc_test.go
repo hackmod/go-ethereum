@@ -9,14 +9,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common/mclock"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/eth"
-	"github.com/ethereum/go-ethereum/light"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/p2p/enode"
+	"github.com/ethersocial/go-ethersocial/common/mclock"
+	"github.com/ethersocial/go-ethersocial/core"
+	"github.com/ethersocial/go-ethersocial/core/rawdb"
+	"github.com/ethersocial/go-ethersocial/crypto"
+	"github.com/ethersocial/go-ethersocial/eth"
+	"github.com/ethersocial/go-ethersocial/light"
+	"github.com/ethersocial/go-ethersocial/p2p"
+	"github.com/ethersocial/go-ethersocial/p2p/enode"
 )
 
 func TestULCSyncWithOnePeer(t *testing.T) {

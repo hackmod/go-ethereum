@@ -27,7 +27,7 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethersocial/go-ethersocial/log"
 )
 
 var (

@@ -8,8 +8,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/swarm/spancontext"
+	"github.com/ethersocial/go-ethersocial/log"
+	"github.com/ethersocial/go-ethersocial/swarm/spancontext"
 
 	opentracing "github.com/opentracing/opentracing-go"
 	jaeger "github.com/uber/jaeger-client-go"

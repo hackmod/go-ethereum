@@ -22,10 +22,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/common/mclock"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/ethersocial/go-ethersocial/common/hexutil"
+	"github.com/ethersocial/go-ethersocial/common/mclock"
+	"github.com/ethersocial/go-ethersocial/p2p/enode"
+	"github.com/ethersocial/go-ethersocial/rpc"
 )
 
 var (

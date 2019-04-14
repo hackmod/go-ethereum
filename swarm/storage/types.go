@@ -24,8 +24,8 @@ import (
 	"encoding/binary"
 	"io"
 
-	"github.com/ethereum/go-ethereum/swarm/bmt"
-	"github.com/ethereum/go-ethereum/swarm/chunk"
+	"github.com/ethersocial/go-ethersocial/swarm/bmt"
+	"github.com/ethersocial/go-ethersocial/swarm/chunk"
 	"golang.org/x/crypto/sha3"
 )
 

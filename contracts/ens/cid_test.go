@@ -23,7 +23,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethersocial/go-ethersocial/common"
 )
 
 // Tests for the decoding of the example ENS

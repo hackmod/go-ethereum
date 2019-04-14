@@ -23,7 +23,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/swarm/chunk"
+	"github.com/ethersocial/go-ethersocial/swarm/chunk"
 )
 
 // TestModePutRequest validates ModePutRequest index values on the provided DB.

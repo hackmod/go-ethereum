@@ -28,11 +28,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/p2p/simulations"
-	"github.com/ethereum/go-ethereum/p2p/simulations/adapters"
-	"github.com/ethereum/go-ethereum/swarm/network"
+	"github.com/ethersocial/go-ethersocial/crypto"
+	"github.com/ethersocial/go-ethersocial/p2p/enode"
+	"github.com/ethersocial/go-ethersocial/p2p/simulations"
+	"github.com/ethersocial/go-ethersocial/p2p/simulations/adapters"
+	"github.com/ethersocial/go-ethersocial/swarm/network"
 )
 
 var (
