@@ -68,8 +68,15 @@ func init() {
 			home = user.HomeDir
 		}
 	}
-	if runtime.GOOS == "windows" {
-		DefaultConfig.Ethash.DatasetDir = filepath.Join(home, "AppData", "Ethash")
+	if runtime.GOOS == "darwin" {
+		DefaultConfig.Ethash.DatasetDir = filepath.Join(home, "Library", "Ethash")
+	} else if runtime.GOOS == "windows" {
+		localappdata := os.Getenv("LOCALAPPDATA")
+		if localappdata != "" {
+			DefaultConfig.Ethash.DatasetDir = filepath.Join(localappdata, "Ethash")
+		} else {
+			DefaultConfig.Ethash.DatasetDir = filepath.Join(home, "AppData", "Local", "Ethash")
+		}
 	} else {
 		DefaultConfig.Ethash.DatasetDir = filepath.Join(home, ".ethash")
 	}
@@ -85,22 +92,31 @@ type Config struct {
 	// Protocol options
 	NetworkId uint64 // Network ID to use for selecting peers to connect to
 	SyncMode  downloader.SyncMode
-	NoPruning bool
+
+	NoPruning  bool // Whether to disable pruning and flush everything to disk
+	NoPrefetch bool // Whether to disable prefetching and only load state on demand
 
 	// Whitelist of required block number -> hash values to accept
 	Whitelist map[uint64]common.Hash `toml:"-"`
 
 	// Light client options
-	LightServ  int `toml:",omitempty"` // Maximum percentage of time allowed for serving LES requests
-	LightPeers int `toml:",omitempty"` // Maximum number of LES client peers
+	LightServ         int  `toml:",omitempty"` // Maximum percentage of time allowed for serving LES requests
+	LightBandwidthIn  int  `toml:",omitempty"` // Incoming bandwidth limit for light servers
+	LightBandwidthOut int  `toml:",omitempty"` // Outgoing bandwidth limit for light servers
+	LightPeers        int  `toml:",omitempty"` // Maximum number of LES client peers
+	OnlyAnnounce      bool // Maximum number of LES client peers
+
+	// Ultra Light client options
+	ULC *ULCConfig `toml:",omitempty"`
 
 	// Database options
 	SkipBcVersionCheck bool `toml:"-"`
 	DatabaseHandles    int  `toml:"-"`
 	DatabaseCache      int
-	TrieCleanCache     int
-	TrieDirtyCache     int
-	TrieTimeout        time.Duration
+
+	TrieCleanCache int
+	TrieDirtyCache int
+	TrieTimeout    time.Duration
 
 	// Mining-related options
 	Etherbase      common.Address `toml:",omitempty"`
@@ -135,6 +151,9 @@ type Config struct {
 
 	// Constantinople block override (TODO: remove after the fork)
 	ConstantinopleOverride *big.Int
+
+	// RPCGasCap is the global gas cap for eth-call variants.
+	RPCGasCap *big.Int `toml:",omitempty"`
 }
 
 type configMarshaling struct {
