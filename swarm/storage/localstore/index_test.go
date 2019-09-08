@@ -21,7 +21,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/ethersocial/go-ethersocial/swarm/chunk"
+	"github.com/ethereum/go-ethereum/swarm/chunk"
 )
 
 // TestDB_pullIndex validates the ordering of keys in pull index.

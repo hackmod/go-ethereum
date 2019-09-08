@@ -24,7 +24,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethersocial/go-ethersocial/swarm/log"
+	"github.com/ethereum/go-ethereum/swarm/log"
 )
 
 const (

@@ -24,7 +24,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethersocial/go-ethersocial/swarm/chunk"
+	"github.com/ethereum/go-ethereum/swarm/chunk"
 )
 
 // TestDB_SubscribePull uploads some chunks before and after

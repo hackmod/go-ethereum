@@ -21,7 +21,7 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/ethersocial/go-ethersocial/event"
+	"github.com/ethereum/go-ethereum/event"
 )
 
 // Config contains the settings of the global account manager.

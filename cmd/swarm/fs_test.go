@@ -29,8 +29,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethersocial/go-ethersocial/cmd/utils"
-	"github.com/ethersocial/go-ethersocial/log"
+	"github.com/ethereum/go-ethereum/cmd/utils"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 type testFile struct {

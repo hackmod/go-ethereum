@@ -26,9 +26,9 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/ethersocial/go-ethersocial/common"
-	"github.com/ethersocial/go-ethersocial/crypto"
-	"github.com/ethersocial/go-ethersocial/rlp"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/rlp"
 )
 
 func init() {

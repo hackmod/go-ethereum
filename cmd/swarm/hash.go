@@ -23,10 +23,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ethersocial/go-ethersocial/cmd/utils"
-	"github.com/ethersocial/go-ethersocial/common"
-	"github.com/ethersocial/go-ethersocial/contracts/ens"
-	"github.com/ethersocial/go-ethersocial/swarm/storage"
+	"github.com/ethereum/go-ethereum/cmd/utils"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/contracts/ens"
+	"github.com/ethereum/go-ethereum/swarm/storage"
 	"gopkg.in/urfave/cli.v1"
 )
 

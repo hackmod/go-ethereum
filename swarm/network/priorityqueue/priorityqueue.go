@@ -30,7 +30,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/ethersocial/go-ethersocial/metrics"
+	"github.com/ethereum/go-ethereum/metrics"
 )
 
 var (

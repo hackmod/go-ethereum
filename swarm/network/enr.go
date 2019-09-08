@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/ethersocial/go-ethersocial/p2p"
-	"github.com/ethersocial/go-ethersocial/p2p/enode"
-	"github.com/ethersocial/go-ethersocial/p2p/protocols"
-	"github.com/ethersocial/go-ethersocial/rlp"
-	"github.com/ethersocial/go-ethersocial/swarm/log"
+	"github.com/ethereum/go-ethereum/p2p"
+	"github.com/ethereum/go-ethereum/p2p/enode"
+	"github.com/ethereum/go-ethereum/p2p/protocols"
+	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/ethereum/go-ethereum/swarm/log"
 )
 
 // ENRAddrEntry is the entry type to store the bzz key in the enode

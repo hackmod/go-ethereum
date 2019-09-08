@@ -23,14 +23,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethersocial/go-ethersocial/common"
-	"github.com/ethersocial/go-ethersocial/common/mclock"
-	"github.com/ethersocial/go-ethersocial/core/types"
-	"github.com/ethersocial/go-ethersocial/eth"
-	"github.com/ethersocial/go-ethersocial/les/flowcontrol"
-	"github.com/ethersocial/go-ethersocial/light"
-	"github.com/ethersocial/go-ethersocial/p2p"
-	"github.com/ethersocial/go-ethersocial/rlp"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/mclock"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/eth"
+	"github.com/ethereum/go-ethereum/les/flowcontrol"
+	"github.com/ethereum/go-ethereum/light"
+	"github.com/ethereum/go-ethereum/p2p"
+	"github.com/ethereum/go-ethereum/rlp"
 )
 
 var (

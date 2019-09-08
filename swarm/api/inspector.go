@@ -20,8 +20,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/ethersocial/go-ethersocial/swarm/network"
-	"github.com/ethersocial/go-ethersocial/swarm/storage"
+	"github.com/ethereum/go-ethereum/swarm/network"
+	"github.com/ethereum/go-ethereum/swarm/storage"
 )
 
 type Inspector struct {

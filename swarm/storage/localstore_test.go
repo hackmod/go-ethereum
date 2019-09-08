@@ -23,7 +23,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethersocial/go-ethersocial/swarm/chunk"
+	"github.com/ethereum/go-ethereum/swarm/chunk"
 )
 
 var (

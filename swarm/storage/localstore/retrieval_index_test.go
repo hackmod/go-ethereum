@@ -20,7 +20,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/ethersocial/go-ethersocial/swarm/chunk"
+	"github.com/ethereum/go-ethereum/swarm/chunk"
 )
 
 // BenchmarkRetrievalIndexes uploads a number of chunks in order to measure

@@ -22,7 +22,7 @@ import (
 	"testing"
 
 	"github.com/docker/docker/pkg/reexec"
-	"github.com/ethersocial/go-ethersocial/internal/cmdtest"
+	"github.com/ethereum/go-ethereum/internal/cmdtest"
 )
 
 func init() {

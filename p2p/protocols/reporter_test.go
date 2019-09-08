@@ -23,7 +23,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethersocial/go-ethersocial/log"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 //TestReporter tests that the metrics being collected for p2p accounting

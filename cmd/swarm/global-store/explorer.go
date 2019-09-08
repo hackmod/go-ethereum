@@ -23,9 +23,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/ethersocial/go-ethersocial/log"
-	"github.com/ethersocial/go-ethersocial/swarm/storage/mock"
-	"github.com/ethersocial/go-ethersocial/swarm/storage/mock/explorer"
+	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/swarm/storage/mock"
+	"github.com/ethereum/go-ethereum/swarm/storage/mock/explorer"
 	cli "gopkg.in/urfave/cli.v1"
 )
 

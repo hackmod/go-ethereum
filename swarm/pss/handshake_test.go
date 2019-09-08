@@ -22,7 +22,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethersocial/go-ethersocial/swarm/log"
+	"github.com/ethereum/go-ethereum/swarm/log"
 )
 
 // asymmetrical key exchange between two directly connected peers

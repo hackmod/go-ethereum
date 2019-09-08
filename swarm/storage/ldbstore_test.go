@@ -27,12 +27,12 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ethersocial/go-ethersocial/swarm/testutil"
+	"github.com/ethereum/go-ethereum/swarm/testutil"
 
-	"github.com/ethersocial/go-ethersocial/common"
-	"github.com/ethersocial/go-ethersocial/swarm/chunk"
-	"github.com/ethersocial/go-ethersocial/swarm/log"
-	"github.com/ethersocial/go-ethersocial/swarm/storage/mock/mem"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/swarm/chunk"
+	"github.com/ethereum/go-ethereum/swarm/log"
+	"github.com/ethereum/go-ethereum/swarm/storage/mock/mem"
 	ldberrors "github.com/syndtr/goleveldb/leveldb/errors"
 )
 

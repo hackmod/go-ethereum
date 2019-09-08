@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ethersocial/go-ethersocial/common"
+	"github.com/ethereum/go-ethereum/common"
 )
 
 // Genesis hashes to enforce below configs on.

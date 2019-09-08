@@ -3,8 +3,8 @@ package les
 import (
 	"fmt"
 
-	"github.com/ethersocial/go-ethersocial/eth"
-	"github.com/ethersocial/go-ethersocial/p2p/enode"
+	"github.com/ethereum/go-ethereum/eth"
+	"github.com/ethereum/go-ethereum/p2p/enode"
 )
 
 type ulc struct {

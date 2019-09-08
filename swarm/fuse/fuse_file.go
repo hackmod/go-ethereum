@@ -26,8 +26,8 @@ import (
 
 	"bazil.org/fuse"
 	"bazil.org/fuse/fs"
-	"github.com/ethersocial/go-ethersocial/swarm/log"
-	"github.com/ethersocial/go-ethersocial/swarm/storage"
+	"github.com/ethereum/go-ethereum/swarm/log"
+	"github.com/ethereum/go-ethereum/swarm/storage"
 	"golang.org/x/net/context"
 )
 

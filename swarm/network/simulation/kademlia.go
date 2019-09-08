@@ -22,11 +22,11 @@ import (
 	"encoding/hex"
 	"time"
 
-	"github.com/ethersocial/go-ethersocial/common"
-	"github.com/ethersocial/go-ethersocial/log"
-	"github.com/ethersocial/go-ethersocial/p2p/enode"
-	"github.com/ethersocial/go-ethersocial/p2p/simulations"
-	"github.com/ethersocial/go-ethersocial/swarm/network"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/p2p/enode"
+	"github.com/ethereum/go-ethereum/p2p/simulations"
+	"github.com/ethereum/go-ethereum/swarm/network"
 )
 
 // BucketKeyKademlia is the key to be used for storing the kademlia

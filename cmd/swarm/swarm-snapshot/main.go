@@ -19,8 +19,8 @@ package main
 import (
 	"os"
 
-	"github.com/ethersocial/go-ethersocial/cmd/utils"
-	"github.com/ethersocial/go-ethersocial/log"
+	"github.com/ethereum/go-ethereum/cmd/utils"
+	"github.com/ethereum/go-ethereum/log"
 	cli "gopkg.in/urfave/cli.v1"
 )
 
