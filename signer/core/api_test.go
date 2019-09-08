@@ -27,16 +27,16 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/accounts"
-	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/internal/ethapi"
-	"github.com/ethereum/go-ethereum/rlp"
-	"github.com/ethereum/go-ethereum/signer/core"
-	"github.com/ethereum/go-ethereum/signer/fourbyte"
-	"github.com/ethereum/go-ethereum/signer/storage"
+	"github.com/ethersocial/go-ethersocial/accounts"
+	"github.com/ethersocial/go-ethersocial/accounts/keystore"
+	"github.com/ethersocial/go-ethersocial/common"
+	"github.com/ethersocial/go-ethersocial/common/hexutil"
+	"github.com/ethersocial/go-ethersocial/core/types"
+	"github.com/ethersocial/go-ethersocial/internal/ethapi"
+	"github.com/ethersocial/go-ethersocial/rlp"
+	"github.com/ethersocial/go-ethersocial/signer/core"
+	"github.com/ethersocial/go-ethersocial/signer/fourbyte"
+	"github.com/ethersocial/go-ethersocial/signer/storage"
 )
 
 //Used for testing

@@ -21,8 +21,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/ethereum/go-ethereum/internal/debug"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/ethersocial/go-ethersocial/internal/debug"
+	"github.com/ethersocial/go-ethersocial/params"
 	"gopkg.in/urfave/cli.v1"
 )
 

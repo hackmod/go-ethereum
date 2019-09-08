@@ -58,8 +58,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ethereum/go-ethereum/internal/build"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/ethersocial/go-ethersocial/internal/build"
+	"github.com/ethersocial/go-ethersocial/params"
 )
 
 var (
