@@ -1,43 +1,47 @@
 language: go
 go_import_path: github.com/ethersocial/go-ethersocial
 sudo: false
-matrix:
+jobs:
   include:
-    - os: linux
+        # This builder only tests code linters on latest version of Go
+    - stage: lint
+      os: linux
       dist: xenial
-      sudo: required
+      go: 1.12.x
+      env:
+        - lint
+      git:
+        submodules: false # avoid cloning ethereum/tests
+      script:
+        - go run build/ci.go lint
+
+    - stage: build
+      os: linux
+      dist: xenial
       go: 1.10.x
       script:
-      - sudo modprobe fuse
-      - sudo chmod 666 /dev/fuse
-      - sudo chown root:$USER /etc/fuse.conf
       - go run build/ci.go install
       - go run build/ci.go test -coverage $TEST_PACKAGES
 
-    - os: linux
+    - stage: build
+      os: linux
       dist: xenial
-      sudo: required
       go: 1.11.x
       script:
-        - sudo modprobe fuse
-        - sudo chmod 666 /dev/fuse
-        - sudo chown root:$USER /etc/fuse.conf
         - go run build/ci.go install
         - go run build/ci.go test -coverage $TEST_PACKAGES
 
     # These are the latest Go versions.
-    - os: linux
+    - stage: build
+      os: linux
       dist: xenial
-      sudo: required
       go: 1.12.x
       script:
-        - sudo modprobe fuse
-        - sudo chmod 666 /dev/fuse
-        - sudo chown root:$USER /etc/fuse.conf
         - go run build/ci.go install
         - go run build/ci.go test -coverage $TEST_PACKAGES
 
-    - os: osx
+    - stage: build
+      os: osx
       go: 1.12.x
       script:
         - echo "Increase the maximum number of open file descriptors on macOS"
@@ -52,19 +56,9 @@ matrix:
         - go run build/ci.go install
         - go run build/ci.go test -coverage $TEST_PACKAGES
 
-    # This builder only tests code linters on latest version of Go
-    - os: linux
-      dist: xenial
-      go: 1.12.x
-      env:
-        - lint
-      git:
-        submodules: false # avoid cloning ethereum/tests
-      script:
-        - go run build/ci.go lint
-
     # This builder does the Linux Azure uploads
-    - if: repo = ethereum/go-ethereum AND type = push
+    - stage: build
+      if: type = push
       os: linux
       dist: xenial
       sudo: required
@@ -100,7 +94,8 @@ matrix:
         - if [ $(ls *-*.gz 2> /dev/null |wc -l) != 0 ]; then mv *-*.tar.gz package; fi
 
     # This builder does the Linux Azure MIPS xgo uploads
-    - if: repo = ethereum/go-ethereum AND type = push
+    - stage: build
+      if: type = push
       os: linux
       dist: xenial
       services:
@@ -131,7 +126,8 @@ matrix:
         - if [ $(ls *-*.gz 2> /dev/null |wc -l) != 0 ]; then mv *-*.tar.gz package; fi
 
     # This builder does the Android Maven and Azure uploads
-    - if: repo = ethereum/go-ethereum AND type = push
+    - stage: build
+      if: type = push
       os: linux
       dist: xenial
       addons:
@@ -170,7 +166,8 @@ matrix:
         - if [ $(ls *-*.gz 2> /dev/null |wc -l) != 0 ]; then mv *-*.tar.gz package; fi
 
     # This builder does the OSX Azure, iOS CocoaPods and iOS Azure uploads
-    - if: repo = ethereum/go-ethereum AND type = push
+    - stage: build
+      if: type = push
       os: osx
       go: 1.12.x
       env:
@@ -202,7 +199,8 @@ matrix:
         - if [ $(ls *-*.gz 2> /dev/null |wc -l) != 0 ]; then mv *-*.tar.gz package; fi
 
     # This builder does the Azure archive purges to avoid accumulating junk
-    - if: repo = ethereum/go-ethereum AND type = cron
+    - stage: build
+      if: type = cron
       os: linux
       dist: xenial
       go: 1.12.x
