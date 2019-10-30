@@ -22,8 +22,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ethersocial/go-ethersocial/accounts/abi"
-	"github.com/ethersocial/go-ethersocial/common"
+	"github.com/ethereum/go-ethereum/accounts/abi"
+	"github.com/ethereum/go-ethereum/common"
 )
 
 // Tests that all the selectors contained in the 4byte database are valid.

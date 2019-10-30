@@ -19,15 +19,15 @@ package main
 import (
 	"strconv"
 
-	"github.com/ethersocial/go-ethersocial/accounts"
-	"github.com/ethersocial/go-ethersocial/accounts/abi/bind"
-	"github.com/ethersocial/go-ethersocial/accounts/external"
-	"github.com/ethersocial/go-ethersocial/cmd/utils"
-	"github.com/ethersocial/go-ethersocial/common"
-	"github.com/ethersocial/go-ethersocial/contracts/checkpointoracle"
-	"github.com/ethersocial/go-ethersocial/ethclient"
-	"github.com/ethersocial/go-ethersocial/params"
-	"github.com/ethersocial/go-ethersocial/rpc"
+	"github.com/ethereum/go-ethereum/accounts"
+	"github.com/ethereum/go-ethereum/accounts/abi/bind"
+	"github.com/ethereum/go-ethereum/accounts/external"
+	"github.com/ethereum/go-ethereum/cmd/utils"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/contracts/checkpointoracle"
+	"github.com/ethereum/go-ethereum/ethclient"
+	"github.com/ethereum/go-ethereum/params"
+	"github.com/ethereum/go-ethereum/rpc"
 	"gopkg.in/urfave/cli.v1"
 )
 

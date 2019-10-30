@@ -23,11 +23,11 @@ import (
 	"os"
 	"time"
 
-	"github.com/ethersocial/go-ethersocial/common"
-	"github.com/ethersocial/go-ethersocial/ethdb"
-	"github.com/ethersocial/go-ethersocial/ethdb/leveldb"
-	"github.com/ethersocial/go-ethersocial/ethdb/memorydb"
-	"github.com/ethersocial/go-ethersocial/log"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/ethdb"
+	"github.com/ethereum/go-ethereum/ethdb/leveldb"
+	"github.com/ethereum/go-ethereum/ethdb/memorydb"
+	"github.com/ethereum/go-ethereum/log"
 	"github.com/olekukonko/tablewriter"
 )
 
