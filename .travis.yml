@@ -18,15 +18,15 @@ jobs:
     - stage: build
       os: linux
       dist: xenial
-      go: 1.10.x
+      go: 1.11.x
       script:
-      - go run build/ci.go install
-      - go run build/ci.go test -coverage $TEST_PACKAGES
+        - go run build/ci.go install
+        - go run build/ci.go test -coverage $TEST_PACKAGES
 
     - stage: build
       os: linux
       dist: xenial
-      go: 1.11.x
+      go: 1.12.x
       script:
         - go run build/ci.go install
         - go run build/ci.go test -coverage $TEST_PACKAGES
@@ -35,14 +35,14 @@ jobs:
     - stage: build
       os: linux
       dist: xenial
-      go: 1.12.x
+      go: 1.13.x
       script:
         - go run build/ci.go install
         - go run build/ci.go test -coverage $TEST_PACKAGES
 
     - stage: build
       os: osx
-      go: 1.12.x
+      go: 1.13.x
       script:
         - echo "Increase the maximum number of open file descriptors on macOS"
         - NOFILE=20480
@@ -62,7 +62,7 @@ jobs:
       os: linux
       dist: xenial
       sudo: required
-      go: 1.12.x
+      go: 1.13.x
       env:
         - azure-linux
       git:
@@ -100,7 +100,7 @@ jobs:
       dist: xenial
       services:
         - docker
-      go: 1.12.x
+      go: 1.13.x
       env:
         - azure-linux-mips
       git:
@@ -149,7 +149,7 @@ jobs:
       git:
         submodules: false # avoid cloning ethereum/tests
       before_install:
-        - curl https://dl.google.com/go/go1.12.linux-amd64.tar.gz | tar -xz
+        - curl https://dl.google.com/go/go1.13.linux-amd64.tar.gz | tar -xz
         - export PATH=`pwd`/go/bin:$PATH
         - export GOROOT=`pwd`/go
         - export GOPATH=$HOME/go
@@ -169,7 +169,7 @@ jobs:
     - stage: build
       if: type = push
       os: osx
-      go: 1.12.x
+      go: 1.13.x
       env:
         - azure-osx
         - azure-ios
@@ -203,7 +203,7 @@ jobs:
       if: type = cron
       os: linux
       dist: xenial
-      go: 1.12.x
+      go: 1.13.x
       env:
         - azure-purge
       git:
