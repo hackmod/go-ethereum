@@ -24,10 +24,10 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/ethereum/go-ethereum/cmd/utils"
-	"github.com/ethereum/go-ethereum/console"
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/ethersocial/go-ethersocial/cmd/utils"
+	"github.com/ethersocial/go-ethersocial/console"
+	"github.com/ethersocial/go-ethersocial/node"
+	"github.com/ethersocial/go-ethersocial/rpc"
 	"gopkg.in/urfave/cli.v1"
 )
 
@@ -125,6 +125,8 @@ func remoteConsole(ctx *cli.Context) error {
 		if path != "" {
 			if ctx.GlobalBool(utils.TestnetFlag.Name) {
 				path = filepath.Join(path, "testnet")
+			} else if ctx.GlobalBool(utils.SkynetFlag.Name) {
+				path = filepath.Join(path, "skynet")
 			} else if ctx.GlobalBool(utils.RinkebyFlag.Name) {
 				path = filepath.Join(path, "rinkeby")
 			}

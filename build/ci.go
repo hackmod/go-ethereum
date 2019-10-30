@@ -58,8 +58,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ethereum/go-ethereum/internal/build"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/ethersocial/go-ethersocial/internal/build"
+	"github.com/ethersocial/go-ethersocial/params"
 )
 
 var (
@@ -69,6 +69,11 @@ var (
 		executablePath("geth"),
 	}
 
+	gesnArchiveFiles = []string{
+		"COPYING",
+		executablePath("gesn"),
+	}
+
 	// Files that end up in the geth-alltools*.zip archive.
 	allToolsArchiveFiles = []string{
 		"COPYING",
@@ -76,6 +81,7 @@ var (
 		executablePath("bootnode"),
 		executablePath("evm"),
 		executablePath("geth"),
+		executablePath("gesn"),
 		executablePath("puppeth"),
 		executablePath("rlpdump"),
 		executablePath("wnode"),
@@ -98,6 +104,10 @@ var (
 		},
 		{
 			BinaryName:  "geth",
+			Description: "Ethereum CLI client.",
+		},
+		{
+			BinaryName:  "gesn",
 			Description: "Ethereum CLI client.",
 		},
 		{
@@ -385,10 +395,19 @@ func doArchive(cmdline []string) {
 
 		basegeth = archiveBasename(*arch, params.ArchiveVersion(env.Commit))
 		geth     = "geth-" + basegeth + ext
+		gesn     = "gesn-" + basegeth + ext
 		alltools = "geth-alltools-" + basegeth + ext
 	)
 	maybeSkipArchive(env)
 	if err := build.WriteArchive(geth, gethArchiveFiles); err != nil {
+		log.Fatal(err)
+	}
+	if runtime.GOOS == "windows" {
+		build.MustRunCommand("cmd", "/c", "copy", executablePath("geth"), executablePath("gesn"))
+	} else {
+		build.MustRunCommand("cp", executablePath("geth"), executablePath("gesn"))
+	}
+	if err := build.WriteArchive(gesn, gesnArchiveFiles); err != nil {
 		log.Fatal(err)
 	}
 	if err := build.WriteArchive(alltools, allToolsArchiveFiles); err != nil {
@@ -396,7 +415,7 @@ func doArchive(cmdline []string) {
 	}
 	for _, archive := range []string{geth, alltools} {
 		if err := archiveUpload(archive, *upload, *signer); err != nil {
-			log.Fatal(err)
+			log.Print(err)
 		}
 	}
 }
@@ -452,7 +471,7 @@ func maybeSkipArchive(env build.Environment) {
 		log.Printf("skipping because this is a cron job")
 		os.Exit(0)
 	}
-	if env.Branch != "master" && !strings.HasPrefix(env.Tag, "v1.") {
+	if !strings.HasPrefix(env.Tag, "v0.") && env.Branch != "master" && !strings.HasPrefix(env.Tag, "v1.") {
 		log.Printf("skipping because branch %q, tag %q is not on the whitelist", env.Branch, env.Tag)
 		os.Exit(0)
 	}
@@ -757,7 +776,7 @@ func doWindowsInstaller(cmdline []string) {
 
 	// Sign and publish installer.
 	if err := archiveUpload(installer, *upload, *signer); err != nil {
-		log.Fatal(err)
+		log.Print(err)
 	}
 }
 
@@ -779,7 +798,7 @@ func doAndroidArchive(cmdline []string) {
 	}
 	// Build the Android archive and Maven resources
 	build.MustRun(goTool("get", "golang.org/x/mobile/cmd/gomobile", "golang.org/x/mobile/cmd/gobind"))
-	build.MustRun(gomobileTool("bind", "-ldflags", "-s -w", "--target", "android", "--javapkg", "org.ethereum", "-v", "github.com/ethereum/go-ethereum/mobile"))
+	build.MustRun(gomobileTool("bind", "-ldflags", "-s -w", "--target", "android", "--javapkg", "org.ethersocial", "-v", "github.com/ethersocial/go-ethersocial/mobile"))
 
 	if *local {
 		// If we're building locally, copy bundle to build dir and skip Maven
@@ -797,7 +816,7 @@ func doAndroidArchive(cmdline []string) {
 	os.Rename("geth.aar", archive)
 
 	if err := archiveUpload(archive, *upload, *signer); err != nil {
-		log.Fatal(err)
+		log.Print(err)
 	}
 	// Sign and upload all the artifacts to Maven Central
 	os.Rename(archive, meta.Package+".aar")
@@ -900,7 +919,7 @@ func doXCodeFramework(cmdline []string) {
 	// Build the iOS XCode framework
 	build.MustRun(goTool("get", "golang.org/x/mobile/cmd/gomobile", "golang.org/x/mobile/cmd/gobind"))
 	build.MustRun(gomobileTool("init"))
-	bind := gomobileTool("bind", "-ldflags", "-s -w", "--target", "ios", "-v", "github.com/ethereum/go-ethereum/mobile")
+	bind := gomobileTool("bind", "-ldflags", "-s -w", "--target", "ios", "-v", "github.com/ethersocial/go-ethersocial/mobile")
 
 	if *local {
 		// If we're building locally, use the build folder and stop afterwards
@@ -921,7 +940,7 @@ func doXCodeFramework(cmdline []string) {
 
 	// Sign and upload the framework to Azure
 	if err := archiveUpload(archive+".tar.gz", *upload, *signer); err != nil {
-		log.Fatal(err)
+		log.Print(err)
 	}
 	// Prepare and upload a PodSpec to CocoaPods
 	if *deploy != "" {
@@ -998,6 +1017,11 @@ func doXgo(cmdline []string) {
 			if strings.HasPrefix(res, GOBIN) {
 				// Binary tool found, cross build it explicitly
 				args = append(args, "./"+filepath.Join("cmd", filepath.Base(res)))
+				// FIXME
+				if filepath.Base(res) == "gesn" {
+					args = args[:len(args)-1]
+					continue
+				}
 				xgo := xgoTool(args)
 				build.MustRun(xgo)
 				args = args[:len(args)-1]

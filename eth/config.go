@@ -24,13 +24,13 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/consensus/ethash"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/eth/downloader"
-	"github.com/ethereum/go-ethereum/eth/gasprice"
-	"github.com/ethereum/go-ethereum/miner"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/ethersocial/go-ethersocial/common"
+	"github.com/ethersocial/go-ethersocial/consensus/ethash"
+	"github.com/ethersocial/go-ethersocial/core"
+	"github.com/ethersocial/go-ethersocial/eth/downloader"
+	"github.com/ethersocial/go-ethersocial/eth/gasprice"
+	"github.com/ethersocial/go-ethersocial/miner"
+	"github.com/ethersocial/go-ethersocial/params"
 )
 
 // DefaultConfig contains default settings for use on the Ethereum main net.
@@ -49,7 +49,7 @@ var DefaultConfig = Config{
 	DatabaseCache:      512,
 	TrieCleanCache:     256,
 	TrieDirtyCache:     256,
-	TrieTimeout:        60 * time.Minute,
+	TrieTimeout:        10 * time.Minute,
 	Miner: miner.Config{
 		GasFloor: 8000000,
 		GasCeil:  8000000,

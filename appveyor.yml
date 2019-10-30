@@ -1,7 +1,7 @@
 os: Visual Studio 2015
 
 # Clone directly into GOPATH.
-clone_folder: C:\gopath\src\github.com\ethereum\go-ethereum
+clone_folder: C:\gopath\src\github.com\ethersocial\go-ethersocial
 clone_depth: 5
 version: "{branch}.{build}"
 environment:
@@ -34,7 +34,28 @@ build_script:
 after_build:
   - go run build\ci.go archive -type zip -signer WINDOWS_SIGNING_KEY -upload gethstore/builds
   - go run build\ci.go nsis -signer WINDOWS_SIGNING_KEY -upload gethstore/builds
+  - mkdir packages
+  - mv *-*.zip packages\
+  - mv *-*.exe packages\
 
-test_script:
-  - set CGO_ENABLED=1
-  - go run build\ci.go test -coverage
+#test_script:
+#  - set CGO_ENABLED=1
+#  - go run build\ci.go test -coverage
+
+artifacts:
+  - path: packages\*.*
+    name: geth
+
+deploy:
+  # Create GitHub release, also set the release name and description.
+  provider: GitHub
+  tag: $(appveyor_repo_tag_name)
+  description: "Release $(appveyor_repo_tag_name)"
+  force_update: true  # Force update in case Travis CI created the release before.
+  prerelease: $(project_version_is_prerelease)
+  draft: false
+  artifact: geth
+  auth_token:
+    secure: tlXNusW2nD1WbdbfZirHCOZJTYGyhE03sJpu+qyVPWJ5sE3IcWSJNZdpVT1g+UW1
+  on:
+    appveyor_repo_tag: true

@@ -22,9 +22,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ethereum/go-ethereum/cmd/utils"
-	"github.com/ethereum/go-ethereum/common/fdlimit"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethersocial/go-ethersocial/cmd/utils"
+	"github.com/ethersocial/go-ethersocial/common/fdlimit"
+	"github.com/ethersocial/go-ethersocial/log"
 	"gopkg.in/urfave/cli.v1"
 )
 
@@ -84,7 +84,7 @@ var (
 	}
 	nodeURLFlag = cli.StringFlag{
 		Name:  "rpc",
-		Value: "http://localhost:8545",
+		Value: "http://localhost:9545",
 		Usage: "The rpc endpoint of a local or remote geth node",
 	}
 	clefURLFlag = cli.StringFlag{

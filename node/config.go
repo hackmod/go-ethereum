@@ -26,17 +26,17 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/accounts"
-	"github.com/ethereum/go-ethereum/accounts/external"
-	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/ethereum/go-ethereum/accounts/scwallet"
-	"github.com/ethereum/go-ethereum/accounts/usbwallet"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/ethersocial/go-ethersocial/accounts"
+	"github.com/ethersocial/go-ethersocial/accounts/external"
+	"github.com/ethersocial/go-ethersocial/accounts/keystore"
+	"github.com/ethersocial/go-ethersocial/accounts/scwallet"
+	"github.com/ethersocial/go-ethersocial/accounts/usbwallet"
+	"github.com/ethersocial/go-ethersocial/common"
+	"github.com/ethersocial/go-ethersocial/crypto"
+	"github.com/ethersocial/go-ethersocial/log"
+	"github.com/ethersocial/go-ethersocial/p2p"
+	"github.com/ethersocial/go-ethersocial/p2p/enode"
+	"github.com/ethersocial/go-ethersocial/rpc"
 )
 
 const (
@@ -288,7 +288,10 @@ func (c *Config) NodeName() string {
 	name := c.name()
 	// Backwards compatibility: previous versions used title-cased "Geth", keep that.
 	if name == "geth" || name == "geth-testnet" {
-		name = "Geth"
+		name = "Gesn"
+	}
+	if name == "gesn" || name == "gesn-testnet" {
+		name = "Gesn"
 	}
 	if c.UserIdent != "" {
 		name += "/" + c.UserIdent
@@ -308,6 +311,9 @@ func (c *Config) name() string {
 			panic("empty executable name, set Config.Name")
 		}
 		return progname
+	}
+	if strings.HasPrefix(filepath.Base(os.Args[0]), "gesn") {
+		return "gesn"
 	}
 	return c.Name
 }
@@ -349,6 +355,10 @@ func (c *Config) ResolvePath(path string) string {
 func (c *Config) instanceDir() string {
 	if c.DataDir == "" {
 		return ""
+	}
+	oldpath := filepath.Join(c.DataDir, "gesn")
+	if common.FileExist(oldpath) || strings.HasPrefix(filepath.Base(os.Args[0]), "gesn") {
+		return oldpath
 	}
 	return filepath.Join(c.DataDir, c.name())
 }
