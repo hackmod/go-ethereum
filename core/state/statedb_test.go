@@ -31,9 +31,9 @@ import (
 
 	"gopkg.in/check.v1"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethersocial/go-ethersocial/common"
+	"github.com/ethersocial/go-ethersocial/core/rawdb"
+	"github.com/ethersocial/go-ethersocial/core/types"
 )
 
 // Tests that updating a state trie does not leak any database writes prior to
