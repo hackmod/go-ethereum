@@ -20,8 +20,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethersocial/go-ethersocial/accounts/abi"
+	"github.com/ethersocial/go-ethersocial/common"
 )
 
 func TestMakeTopics(t *testing.T) {
