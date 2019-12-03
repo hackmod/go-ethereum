@@ -474,6 +474,14 @@ func (c *ChainConfig) CheckConfigForkOrder() error {
 					lastFork.name, cur.name, cur.block)
 			}
 			if lastFork.block != nil && cur.block != nil {
+				// for Ethersocial network case
+				if c.ChainID != nil && (c.ChainID.Cmp(big.NewInt(31102)) == 0 || c.ChainID.Cmp(big.NewInt(131102)) == 0) {
+					if cur.block.Cmp(c.ByzantiumBlock) == 0 {
+						// ignore
+						continue
+					}
+				}
+
 				if lastFork.block.Cmp(cur.block) > 0 {
 					return fmt.Errorf("unsupported fork ordering: %v enabled at %v, but %v enabled at %v",
 						lastFork.name, lastFork.block, cur.name, cur.block)
