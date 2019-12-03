@@ -22,11 +22,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethersocial/go-ethersocial/accounts/abi/bind"
-	"github.com/ethersocial/go-ethersocial/core"
-	"github.com/ethersocial/go-ethersocial/crypto"
-	"github.com/ethersocial/go-ethersocial/light"
-	"github.com/ethersocial/go-ethersocial/params"
+	"github.com/ethereum/go-ethereum/accounts/abi/bind"
+	"github.com/ethereum/go-ethereum/core"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/light"
+	"github.com/ethereum/go-ethereum/params"
 )
 
 // Test light syncing which will download all headers from genesis.

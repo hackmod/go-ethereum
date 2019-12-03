@@ -23,12 +23,12 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/ethersocial/go-ethersocial/accounts/abi"
-	"github.com/ethersocial/go-ethersocial/accounts/abi/bind"
-	"github.com/ethersocial/go-ethersocial/accounts/keystore"
-	"github.com/ethersocial/go-ethersocial/common"
-	"github.com/ethersocial/go-ethersocial/core/types"
-	"github.com/ethersocial/go-ethersocial/crypto"
+	"github.com/ethereum/go-ethereum/accounts/abi"
+	"github.com/ethereum/go-ethereum/accounts/abi/bind"
+	"github.com/ethereum/go-ethereum/accounts/keystore"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/crypto"
 )
 
 // Signer is an interface defining the callback when a contract requires a

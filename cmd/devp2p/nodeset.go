@@ -23,8 +23,8 @@ import (
 	"io/ioutil"
 	"sort"
 
-	"github.com/ethersocial/go-ethersocial/common"
-	"github.com/ethersocial/go-ethersocial/p2p/enode"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/p2p/enode"
 )
 
 const jsonIndent = "    "
