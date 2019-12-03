@@ -1,5 +1,5 @@
 # Build Geth in a stock Go builder container
-FROM golang:1.12-alpine as builder
+FROM golang:1.13-alpine as builder
 
 RUN apk add --no-cache make gcc musl-dev linux-headers git
 
@@ -12,5 +12,5 @@ FROM alpine:latest
 RUN apk add --no-cache ca-certificates
 COPY --from=builder /go-ethersocial/build/bin/geth /usr/local/bin/
 
-EXPOSE 9545 9546 50505 50505/udp
+EXPOSE 9545 9546 9547 50505 50505/udp
 ENTRYPOINT ["geth"]
