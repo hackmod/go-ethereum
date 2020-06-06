@@ -19,9 +19,9 @@ package state
 import (
 	"fmt"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/trie"
+	"github.com/ethersocial/go-ethersocial/common"
+	"github.com/ethersocial/go-ethersocial/ethdb"
+	"github.com/ethersocial/go-ethersocial/trie"
 	lru "github.com/hashicorp/golang-lru"
 )
 

@@ -23,11 +23,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common/mclock"
-	"github.com/ethereum/go-ethereum/ethdb/memorydb"
-	"github.com/ethereum/go-ethereum/p2p/enode"
+	"github.com/ethersocial/go-ethersocial/common/mclock"
+	"github.com/ethersocial/go-ethersocial/ethdb/memorydb"
+	"github.com/ethersocial/go-ethersocial/p2p/enode"
 
-	"github.com/ethereum/go-ethereum/les/utils"
+	"github.com/ethersocial/go-ethersocial/les/utils"
 )
 
 const (

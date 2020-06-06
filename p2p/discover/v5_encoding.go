@@ -30,12 +30,12 @@ import (
 	"net"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common/math"
-	"github.com/ethereum/go-ethereum/common/mclock"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/p2p/enr"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/ethersocial/go-ethersocial/common/math"
+	"github.com/ethersocial/go-ethersocial/common/mclock"
+	"github.com/ethersocial/go-ethersocial/crypto"
+	"github.com/ethersocial/go-ethersocial/p2p/enode"
+	"github.com/ethersocial/go-ethersocial/p2p/enr"
+	"github.com/ethersocial/go-ethersocial/rlp"
 	"golang.org/x/crypto/hkdf"
 )
 

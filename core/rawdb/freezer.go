@@ -25,11 +25,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/metrics"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/ethersocial/go-ethersocial/common"
+	"github.com/ethersocial/go-ethersocial/ethdb"
+	"github.com/ethersocial/go-ethersocial/log"
+	"github.com/ethersocial/go-ethersocial/metrics"
+	"github.com/ethersocial/go-ethersocial/params"
 	"github.com/prometheus/tsdb/fileutil"
 )
 

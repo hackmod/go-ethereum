@@ -30,14 +30,14 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/ethereum/go-ethereum/accounts"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/common/math"
-	"github.com/ethereum/go-ethereum/consensus/clique"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/ethersocial/go-ethersocial/accounts"
+	"github.com/ethersocial/go-ethersocial/common"
+	"github.com/ethersocial/go-ethersocial/common/hexutil"
+	"github.com/ethersocial/go-ethersocial/common/math"
+	"github.com/ethersocial/go-ethersocial/consensus/clique"
+	"github.com/ethersocial/go-ethersocial/core/types"
+	"github.com/ethersocial/go-ethersocial/crypto"
+	"github.com/ethersocial/go-ethersocial/rlp"
 )
 
 type SigFormat struct {

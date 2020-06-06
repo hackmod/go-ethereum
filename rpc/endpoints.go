@@ -19,7 +19,7 @@ package rpc
 import (
 	"net"
 
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethersocial/go-ethersocial/log"
 )
 
 // StartIPCEndpoint starts an IPC endpoint.
