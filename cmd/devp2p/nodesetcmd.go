@@ -21,10 +21,10 @@ import (
 	"net"
 	"time"
 
-	"github.com/ethersocial/go-ethersocial/core/forkid"
-	"github.com/ethersocial/go-ethersocial/p2p/enr"
-	"github.com/ethersocial/go-ethersocial/params"
-	"github.com/ethersocial/go-ethersocial/rlp"
+	"github.com/ethereum/go-ethereum/core/forkid"
+	"github.com/ethereum/go-ethereum/p2p/enr"
+	"github.com/ethereum/go-ethereum/params"
+	"github.com/ethereum/go-ethereum/rlp"
 	"gopkg.in/urfave/cli.v1"
 )
 

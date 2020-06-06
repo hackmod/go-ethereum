@@ -25,11 +25,11 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/ethersocial/go-ethersocial/internal/testlog"
-	"github.com/ethersocial/go-ethersocial/log"
-	"github.com/ethersocial/go-ethersocial/p2p/enode"
-	"github.com/ethersocial/go-ethersocial/p2p/enr"
-	"github.com/ethersocial/go-ethersocial/p2p/netutil"
+	"github.com/ethereum/go-ethereum/internal/testlog"
+	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/p2p/enode"
+	"github.com/ethereum/go-ethereum/p2p/enr"
+	"github.com/ethereum/go-ethereum/p2p/netutil"
 )
 
 func init() {

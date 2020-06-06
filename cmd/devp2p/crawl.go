@@ -19,9 +19,9 @@ package main
 import (
 	"time"
 
-	"github.com/ethersocial/go-ethersocial/log"
-	"github.com/ethersocial/go-ethersocial/p2p/discover"
-	"github.com/ethersocial/go-ethersocial/p2p/enode"
+	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/p2p/discover"
+	"github.com/ethereum/go-ethereum/p2p/enode"
 )
 
 type crawler struct {

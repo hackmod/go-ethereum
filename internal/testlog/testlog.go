@@ -20,7 +20,7 @@ package testlog
 import (
 	"testing"
 
-	"github.com/ethersocial/go-ethersocial/log"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 // Logger returns a logger which logs to the unit test log of t.
