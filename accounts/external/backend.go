@@ -21,7 +21,7 @@ import (
 	"math/big"
 	"sync"
 
-	"github.com/ethersocial/go-ethersocial"
+	ethereum "github.com/ethersocial/go-ethersocial"
 	"github.com/ethersocial/go-ethersocial/accounts"
 	"github.com/ethersocial/go-ethersocial/common"
 	"github.com/ethersocial/go-ethersocial/common/hexutil"

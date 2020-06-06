@@ -23,7 +23,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ethersocial/go-ethersocial"
+	ethereum "github.com/ethersocial/go-ethersocial"
 	"github.com/ethersocial/go-ethersocial/accounts/abi"
 	"github.com/ethersocial/go-ethersocial/accounts/abi/bind"
 	"github.com/ethersocial/go-ethersocial/common"

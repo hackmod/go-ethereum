@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ethersocial/go-ethersocial"
+	ethereum "github.com/ethersocial/go-ethersocial"
 	"github.com/ethersocial/go-ethersocial/accounts/abi"
 	"github.com/ethersocial/go-ethersocial/common"
 	"github.com/ethersocial/go-ethersocial/core/types"
