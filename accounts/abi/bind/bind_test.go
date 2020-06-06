@@ -1430,10 +1430,10 @@ var bindTests = []struct {
 		`
 		"math/big"
 
-		"github.com/ethereum/go-ethereum/accounts/abi/bind"
-		"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
-		"github.com/ethereum/go-ethereum/crypto"
-		"github.com/ethereum/go-ethereum/core"
+		"github.com/ethersocial/go-ethersocial/accounts/abi/bind"
+		"github.com/ethersocial/go-ethersocial/accounts/abi/bind/backends"
+		"github.com/ethersocial/go-ethersocial/crypto"
+		"github.com/ethersocial/go-ethersocial/core"
 		`,
 		`
 		// Initialize test accounts
@@ -1493,10 +1493,10 @@ var bindTests = []struct {
 		`
 		"math/big"
 
-		"github.com/ethereum/go-ethereum/accounts/abi/bind"
-		"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
-		"github.com/ethereum/go-ethereum/crypto"
-		"github.com/ethereum/go-ethereum/core"
+		"github.com/ethersocial/go-ethersocial/accounts/abi/bind"
+		"github.com/ethersocial/go-ethersocial/accounts/abi/bind/backends"
+		"github.com/ethersocial/go-ethersocial/crypto"
+		"github.com/ethersocial/go-ethersocial/core"
         `,
 		`
 		key, _ := crypto.GenerateKey()
@@ -1555,10 +1555,10 @@ var bindTests = []struct {
 		`
 			"math/big"
 
-			"github.com/ethereum/go-ethereum/accounts/abi/bind"
-			"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
-			"github.com/ethereum/go-ethereum/core"
-			"github.com/ethereum/go-ethereum/crypto"
+			"github.com/ethersocial/go-ethersocial/accounts/abi/bind"
+			"github.com/ethersocial/go-ethersocial/accounts/abi/bind/backends"
+			"github.com/ethersocial/go-ethersocial/core"
+			"github.com/ethersocial/go-ethersocial/crypto"
 		`,
 		`
 			// Generate a new random account and a funded simulator
@@ -1620,10 +1620,10 @@ var bindTests = []struct {
 			"bytes"
 			"math/big"
 	
-			"github.com/ethereum/go-ethereum/accounts/abi/bind"
-			"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
-			"github.com/ethereum/go-ethereum/core"
-			"github.com/ethereum/go-ethereum/crypto"
+			"github.com/ethersocial/go-ethersocial/accounts/abi/bind"
+			"github.com/ethersocial/go-ethersocial/accounts/abi/bind/backends"
+			"github.com/ethersocial/go-ethersocial/core"
+			"github.com/ethersocial/go-ethersocial/crypto"
 	   `,
 		`
 			key, _ := crypto.GenerateKey()
@@ -1746,7 +1746,7 @@ func TestGolangBindings(t *testing.T) {
 		t.Fatalf("failed to convert binding test to modules: %v\n%s", err, out)
 	}
 	pwd, _ := os.Getwd()
-	replacer := exec.Command(gocmd, "mod", "edit", "-replace", "github.com/ethereum/go-ethereum="+filepath.Join(pwd, "..", "..", "..")) // Repo root
+	replacer := exec.Command(gocmd, "mod", "edit", "-replace", "github.com/ethersocial/go-ethersocial="+filepath.Join(pwd, "..", "..", "..")) // Repo root
 	replacer.Dir = pkg
 	if out, err := replacer.CombinedOutput(); err != nil {
 		t.Fatalf("failed to replace binding test dependency to current source tree: %v\n%s", err, out)
